@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter&family=Ubuntu&display=swap');
+
+body{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.logo{
+    height: 100px;
+    width: 100px;
+}
+
+
+  
+  .navbar-nav .nav-item:hover {
+   
+    background-color: #ffc107;
+    color: #000;
+    border-radius: 10px;
+  }
