@@ -10,10 +10,20 @@ body{
 }
 
 
+.primaryBtn{
+    background-color: #34e7e4;
+}
+
+.primaryBtn:hover{
+    background-color: #00d8d6;
+    color: #000;
+  
+}
+
   
   .navbar-nav .nav-item:hover {
    
-    background-color: #ffc107;
+    background-color: #34e7e4;
     color: #000;
     border-radius: 10px;
   }
