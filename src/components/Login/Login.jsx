@@ -8,6 +8,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
 
 
+
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
@@ -55,7 +56,25 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log('sign in', user);
-                navigate(from, { replace: true });
+
+                const saveUser = { name: user.displayName, email: user.email }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        
+                            navigate(from, { replace: true });
+                        
+                    })
+
+
+
+                
 
             })
             .catch(error => {
