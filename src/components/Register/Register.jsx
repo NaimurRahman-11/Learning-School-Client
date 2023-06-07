@@ -13,7 +13,7 @@ const Register = () => {
     useTitle('Register');
     const navigate = useNavigate()
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const { register, handleSubmit, reset, formState: { errors, isValid }, getValues } = useForm();
 
@@ -31,18 +31,38 @@ const Register = () => {
 
         createUser(event.email, event.password)
             .then(() => {
-                
+
                 reset();
 
+                updateUserProfile(event.name, event.photoURL)
+                    .then(() => {
 
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Registration Successful!',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                navigate('/')
+                        const saveUser = { name: event.name, email: event.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: 'Registration Successful!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    navigate('/')
+                                }
+                            })
+
+
+
+
+                    })
 
 
             })
@@ -50,7 +70,7 @@ const Register = () => {
     }
 
     return (
-        <div className="container mb-5 p-5" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/drawing-guitar-other-instruments-including-guitar_899870-7416.jpg?w=826')"}}>
+        <div className="container mb-5 p-5" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/drawing-guitar-other-instruments-including-guitar_899870-7416.jpg?w=826')" }}>
             <div className="row justify-content-center">
                 <div className="col-md-6 col-sm-8">
                     <div className="card">
@@ -100,7 +120,7 @@ const Register = () => {
                                             required: true,
                                             pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])/,
                                             validate: validatePasswordMatch,
-                                            
+
                                         })}
                                         maxLength="6" placeholder="(Maximum Length is 6 )"
 
