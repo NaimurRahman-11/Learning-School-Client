@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 import { useContext, useState } from "react";
 
 import { GoogleAuthProvider } from "firebase/auth";
@@ -119,7 +119,7 @@ const Login = () => {
 
                            <hr />
                             <div className="text-center">
-                            <Link className=""><button className="btn primaryBtn">Sign in with <FaGoogle onClick={handleGoogleSignIn} className='iconSize'></FaGoogle></button></Link>
+                            <Link className="" onClick={handleGoogleSignIn}><button className="btn primaryBtn">Sign in with <FaGoogle  className='iconSize'></FaGoogle></button></Link>
                             </div>
                            
                         </div>

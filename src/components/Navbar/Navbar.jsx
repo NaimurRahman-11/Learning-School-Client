@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     const { user, logOut } = useContext(AuthContext);
-    console.log("navbar", user)
+    // console.log("navbar", user)
     const handleLogOut = () => {
         logOut()
             .then()
@@ -64,7 +64,7 @@ const Navbar = () => {
 
 
                             {user ?
-                                <Link to=""><button onClick={handleLogOut} className="btn btn-outline-warning" type="submit">Log Out</button></Link> :
+                                <Link to=""><button onClick={handleLogOut} className="btn primaryBtn" type="submit">Log Out</button></Link> :
                                 <Link to="/login"><button className="btn primaryBtn" type="submit">Login</button></Link>}
                         </div>
                     </div>
