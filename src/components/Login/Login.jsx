@@ -66,7 +66,7 @@ const Login = () => {
     }
 
     return (
-        <div className="container mb-5 mt-5">
+        <div className="container mb-5 p-5" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/drawing-guitar-other-instruments-including-guitar_899870-7416.jpg?w=826')"}}>
             <div className="row justify-content-center">
                 <div className="col-md-6 col-sm-8">
                     <div className="card">
