@@ -42,7 +42,7 @@ const Navbar = () => {
                                 {user && (
                                     <>
                                         <li className="nav-item me-3">
-                                            <Link to="/dashboard" className="nav-link">
+                                            <Link to="/dashboard/user" className="nav-link">
                                                 Dashboard
                                             </Link>
                                         </li>
