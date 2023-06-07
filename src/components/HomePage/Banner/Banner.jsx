@@ -4,8 +4,13 @@ import { Carousel } from 'react-responsive-carousel';
 const Banner = () => {
     return (
         <Carousel className="mt-1">
+
+            <div>
+                <img src="https://img.freepik.com/premium-photo/painting-music-instruments_1379-1800.jpg?w=1380" />
+            </div>
+
         <div >
-                {/* <img src="https://img.freepik.com/premium-photo/painting-music-instruments_1379-1800.jpg?w=1380" /> */}
+                
                 <img src="https://img.freepik.com/free-photo/creative-illustration-with-electric-guitar-generative-ai_169016-30096.jpg?w=1380&t=st=1686136529~exp=1686137129~hmac=42ac2233310288b131d9e9679156dba403d809bf3b51929431ac32683438d39c" alt="" />
             
         </div>
