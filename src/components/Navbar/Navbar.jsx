@@ -19,7 +19,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="container shadow rounded">
+        <div className="container shadow rounded ">
             <div>
                 <nav className="navbar navbar-expand-lg">
                     <div className="container-fluid">
