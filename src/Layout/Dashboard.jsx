@@ -12,8 +12,8 @@ const Dashboard = () => {
 
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-  
-  
+
+
 
 
   const renderAdminMenu = () => (
@@ -29,7 +29,7 @@ const Dashboard = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/products" className="nav-link">
+        <Link to="/dashboard/manageclasses" className="nav-link">
           <i className="bi bi-basket2 me-2"></i> Manage Classes
         </Link>
       </li>
@@ -46,12 +46,12 @@ const Dashboard = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/dashboard/allusers" className="nav-link">
+        <Link to="/dashboard/myclasses" className="nav-link">
           <i className="bi bi-people me-2"></i> My Classes
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/dashboard/allusers" className="nav-link">
+        <Link to="/dashboard/addclass" className="nav-link">
           <i className="bi bi-people me-2"></i> Add a Class
         </Link>
       </li>
@@ -101,15 +101,25 @@ const Dashboard = () => {
         </div>
         <ul className="nav flex-column">
 
-        {isAdmin ? renderAdminMenu() : isInstructor ? renderInstructorMenu() : renderStudentMenu()}
+          {isAdmin ? renderAdminMenu() : isInstructor ? renderInstructorMenu() : renderStudentMenu()}
 
-         
-         
+          <hr />
+
+          <li className="nav-item">
+        <Link to="/" className="nav-link">
+          <i className="bi bi-people me-2"></i> Home
+        </Link>
+      </li>
+
 
 
         </ul>
 
-       
+        
+
+
+
+
       </div>
 
       {/* Content */}
