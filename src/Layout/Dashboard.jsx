@@ -1,6 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
 import logo from '../assets/logo.png';
 import useAdmin from "../components/hooks/useAdmin";
+import useInstructor from "../components/hooks/useInstructor";
+
 
 
 
@@ -9,6 +11,80 @@ const Dashboard = () => {
   // const isAdmin = true;
 
   const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  
+  
+
+
+  const renderAdminMenu = () => (
+    <>
+      <li className="nav-item">
+        <Link to="/dashboard" className="nav-link">
+          <i className="bi bi-speedometer2 me-2"></i> Admin Home
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/dashboard/allusers" className="nav-link">
+          <i className="bi bi-people me-2"></i> Manage Users
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/products" className="nav-link">
+          <i className="bi bi-basket2 me-2"></i> Manage Classes
+        </Link>
+      </li>
+    </>
+  );
+
+
+
+  const renderInstructorMenu = () => (
+    <>
+      <li className="nav-item">
+        <Link to="/dashboard" className="nav-link">
+          <i className="bi bi-speedometer2 me-2"></i> Instructor Home
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/dashboard/allusers" className="nav-link">
+          <i className="bi bi-people me-2"></i> My Classes
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/dashboard/allusers" className="nav-link">
+          <i className="bi bi-people me-2"></i> Add a Class
+        </Link>
+      </li>
+    </>
+  );
+
+
+
+  const renderStudentMenu = () => (
+    <>
+      <li className="nav-item">
+        <Link to="/dashboard" className="nav-link">
+          <i className="bi bi-speedometer2 me-2"></i> User Home
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/dashboard/allusers" className="nav-link">
+          <i className="bi bi-people me-2"></i> My Selected Classes
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/dashboard/allusers" className="nav-link">
+          <i className="bi bi-people me-2"></i> My Enrolled Classes
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/dashboard/allusers" className="nav-link">
+          <i className="bi bi-people me-2"></i> Payment
+        </Link>
+      </li>
+    </>
+  );
+
 
   return (
 
@@ -25,53 +101,15 @@ const Dashboard = () => {
         </div>
         <ul className="nav flex-column">
 
+        {isAdmin ? renderAdminMenu() : isInstructor ? renderInstructorMenu() : renderStudentMenu()}
 
-          {
-            isAdmin ? <>
-              <li className="nav-item">
-                <Link to="/dashboard" className="nav-link">
-                  <i className="bi bi-speedometer2 me-2"></i> Admin Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/dashboard/allusers" className="nav-link">
-                  <i className="bi bi-people me-2"></i> Manage Users
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/products" className="nav-link">
-                  <i className="bi bi-basket2 me-2"></i> Manage Classes
-                </Link>
-              </li>
-              
-            </> : <>
-                
-              <li className="nav-item">
-                <Link to="/dashboard" className="nav-link">
-                  <i className="bi bi-speedometer2 me-2"></i> User Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/dashboard/allusers" className="nav-link">
-                  <i className="bi bi-people me-2"></i> My Selected Classes
-                </Link>
-                </li>
-                <li className="nav-item">
-                <Link to="/dashboard/allusers" className="nav-link">
-                  <i className="bi bi-people me-2"></i> My Enrolled Classes
-                </Link>
-                </li>
-                <li className="nav-item">
-                <Link to="/dashboard/allusers" className="nav-link">
-                  <i className="bi bi-people me-2"></i> Payment
-                </Link>
-              </li>
-
-            </>
-          }
+         
+         
 
 
         </ul>
+
+       
       </div>
 
       {/* Content */}
