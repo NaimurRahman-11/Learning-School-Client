@@ -23,6 +23,10 @@ import {
 import AddClass from './components/Dashboard/addClass/addClass';
 import MyClasses from './components/Dashboard/MyClasses/MyClasses';
 import ManageClasses from './components/Dashboard/ManageClasses/ManageClasses';
+import ClassPage from './components/ClassPage/ClassPage';
+import ViewDetails from './components/ViewDetails/ViewDetails';
+import PrivateRoute from './Routes/PrivateRoute';
+
 
 
 const queryClient = new QueryClient()
@@ -51,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/classes",
+        element: <ClassPage></ClassPage>,
+      },
+      {
+        path: "/view-details/:id",
+        element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
       }
 
 

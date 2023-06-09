@@ -5,14 +5,14 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 const PrivateRoute = ({children}) => {
 
-    const { user, loading } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const location = useLocation();
 
-    if (loading) {
-        return <div className="spinner-border container" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div>;
-    }
+    // if (loading) {
+    //     return <div className="spinner-border container" role="status">
+    //         <span className="visually-hidden">Loading...</span>
+    //     </div>;
+    // }
 
     if (user) {
         return children;
