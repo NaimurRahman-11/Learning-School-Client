@@ -27,6 +27,7 @@ import ClassPage from './components/ClassPage/ClassPage';
 import ViewDetails from './components/ViewDetails/ViewDetails';
 import PrivateRoute from './Routes/PrivateRoute';
 import Instructors from './components/Instructors/Instructors';
+import ViewApprovedDetails from './components/ViewApprovedDetails/ViewApprovedDetails';
 
 
 
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "/view-details/:id",
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+      },
+      {
+        path: "/view-approved-details/:id",
+        element: <PrivateRoute><ViewApprovedDetails></ViewApprovedDetails></PrivateRoute>,
       },
       {
         path: "/instructors",

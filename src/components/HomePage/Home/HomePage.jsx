@@ -1,6 +1,7 @@
 
 import useTitle from "../../hooks/useTitle";
 import Banner from "../Banner/Banner";
+import TopClasses from "../TopClasses/TopClasses";
 
 
 
@@ -17,6 +18,7 @@ const HomePage = () => {
             
           
             <Banner></Banner>
+            <TopClasses></TopClasses>
 
 
         </div>
