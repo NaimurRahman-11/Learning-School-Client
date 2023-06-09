@@ -8,7 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Main from './Layout/Main.jsx';
-import HomePage from './components/HomePage/HomePage';
+import HomePage from './components/HomePage/Home/HomePage';
 import AuthProvider from './Providers/AuthProvider';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
@@ -26,6 +26,7 @@ import ManageClasses from './components/Dashboard/ManageClasses/ManageClasses';
 import ClassPage from './components/ClassPage/ClassPage';
 import ViewDetails from './components/ViewDetails/ViewDetails';
 import PrivateRoute from './Routes/PrivateRoute';
+import Instructors from './components/Instructors/Instructors';
 
 
 
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/view-details/:id",
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+      },
+      {
+        path: "/instructors",
+        element: <Instructors></Instructors>,
       }
 
 
@@ -89,13 +94,13 @@ const router = createBrowserRouter([
       },
       {
         path: "myclasses",
-        element:<MyClasses></MyClasses>,
+        element: <MyClasses></MyClasses>,
       },
       {
         path: "manageclasses",
         element: <ManageClasses></ManageClasses>,
       }
-    
+
     ]
   },
 ]);

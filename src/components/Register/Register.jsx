@@ -37,7 +37,7 @@ const Register = () => {
                 updateUserProfile(event.name, event.photoURL)
                     .then(() => {
 
-                        const saveUser = { name: event.name, email: event.email }
+                        const saveUser = { name: event.name, email: event.email, photo: event.photoURL }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {

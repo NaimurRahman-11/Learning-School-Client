@@ -33,19 +33,19 @@ const ClassPage = () => {
 
     const handleViewDetails = () => {
         if (!user) {
-         
-          Swal.fire({
-            title: 'Please log in',
-            text: 'You need to be logged in to view the details.',
-            icon: 'warning',
-            showCancelButton: false,
-            confirmButtonText: 'OK',
-          });
+
+            Swal.fire({
+                title: 'Please log in',
+                text: 'You need to be logged in to view the details.',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonText: 'OK',
+            });
             navigate('/login');
         } else {
-          // User is present, do nothing or perform desired actions
+            // User is present, do nothing or perform desired actions
         }
-      };
+    };
 
 
     return (
@@ -56,7 +56,7 @@ const ClassPage = () => {
                 <div className="table-responsive">
                     <table className="table">
                         <thead>
-                            <tr>
+                            <tr >
                                 <th scope="col">#</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Class Name</th>
@@ -69,25 +69,43 @@ const ClassPage = () => {
                         </thead>
                         <tbody>
                             {approvedClasses.map((classes, index) => (
-                                <tr key={classes._id}>
-                                    <td>
+
+                                <tr key={classes._id} >
+                                    <td className={parseInt(classes.availableSeats) === 0 ? 'bg-danger' : ''}>
                                         {index + 1}
                                     </td>
-                                    <td>
+                                    <td className={parseInt(classes.availableSeats) === 0 ? 'bg-danger' : ''}>
                                         <img src={classes.classPhotoURL} alt="" className="img-fluid" style={{ objectFit: "contain", height: "130px" }} />
                                     </td>
-                                    <td>{classes.className}</td>
-                                    <td>{classes.instructorName}</td>
-                                    <td>{classes.availableSeats}</td>
-                                    <td>{classes.price}</td>
-                                    <td>
+                                    <td className={parseInt(classes.availableSeats) === 0 ? 'bg-danger' : ''}>{classes.className}</td>
+                                    <td className={parseInt(classes.availableSeats) === 0 ? 'bg-danger' : ''}>{classes.instructorName}</td>
+                                    <td className={parseInt(classes.availableSeats) === 0 ? 'bg-danger' : ''}>{classes.availableSeats}</td>
+                                    <td className={parseInt(classes.availableSeats) === 0 ? 'bg-danger' : ''}>{classes.price}</td>
+                                    <td className={parseInt(classes.availableSeats) === 0 ? 'bg-danger' : ''}>
 
 
-                                        
 
-                                        <Link to={`/view-details/${classes._id}`}><button onClick={() => handleViewDetails(classes._id)} className="btn btn-warning" disabled={classes.availableSeats === 0 || isAdmin || isInstructor}>View Details</button></Link>
-                                            
-                                            
+
+                                        {isAdmin || isInstructor ? (
+                                            <button
+                                                onClick={() => handleViewDetails(classes._id)}
+                                                className="btn btn-warning"
+                                                disabled={classes.availableSeats === "0" || isAdmin || isInstructor}
+                                            >
+                                                View Details
+                                            </button>
+                                        ) : (
+                                            <Link to={`/view-details/${classes._id}`}>
+                                                <button
+                                                    onClick={() => handleViewDetails(classes._id)}
+                                                    className="btn btn-warning"
+                                                    disabled={classes.availableSeats === "0" || isAdmin || isInstructor}
+                                                >
+                                                    View Details
+                                                </button>
+                                            </Link>
+                                        )}
+
 
                                     </td>
 

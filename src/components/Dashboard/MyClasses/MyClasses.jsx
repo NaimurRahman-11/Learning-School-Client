@@ -7,10 +7,10 @@ const MyClasses = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { data: classes = [], refetch } = useQuery([`classes?email=${user.email}`], async () => {
-        const res = await fetch('http://localhost:5000/classes')
+    const { data: classes = [], refetch } = useQuery(['classes', { email: user.email }], async () => {
+        const res = await fetch(`http://localhost:5000/classes?email=${user.email}`);
         return res.json();
-    })
+      });
 
 
 
