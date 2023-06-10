@@ -4,6 +4,8 @@ import {  useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Fade } from "react-awesome-reveal";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const TopClasses = () => {
 
@@ -11,6 +13,8 @@ const TopClasses = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
 
   
@@ -77,7 +81,7 @@ const TopClasses = () => {
         });
     } else {
       Swal.fire({
-        title: "Please login to order the food",
+        title: "Please login to select the class!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -108,7 +112,7 @@ const TopClasses = () => {
                
                 
                 <button onClick={() => handleAddToCart(instructor)}
-                  disabled={selectedItems.includes(instructor._id)}
+                  disabled={selectedItems.includes(instructor._id) || isAdmin || isInstructor}
                   className="btn btn-warning"> {selectedItems.includes(instructor._id)
                     ? "Selected" : "Select"}</button>
                         
