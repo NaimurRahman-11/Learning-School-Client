@@ -16,8 +16,8 @@ const ClassPage = () => {
 
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
-    const [isAdmin, isAdminLoading] = useAdmin();
-    const [isInstructor, isInstructorLoading] = useInstructor();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     const { data: approvedClasses = [] } = useQuery(['approved-classes'], async () => {
         const res = await fetch('http://localhost:5000/approved-classes')
@@ -25,10 +25,10 @@ const ClassPage = () => {
     })
 
 
-    if (isAdminLoading || isInstructorLoading) {
-        // Display loading state if any of the data is still loading
-        return <div>Loading...</div>;
-    }
+    // if (isAdminLoading || isInstructorLoading) {
+    //     // Display loading state if any of the data is still loading
+    //     return <div>Loading...</div>;
+    // }
 
 
     const handleViewDetails = () => {

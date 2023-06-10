@@ -68,17 +68,17 @@ const Dashboard = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/dashboard/allusers" className="nav-link">
+        <Link to="/dashboard/selected-classes" className="nav-link">
           <i className="bi bi-people me-2"></i> My Selected Classes
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/dashboard/allusers" className="nav-link">
+        <Link to="/dashboard/" className="nav-link">
           <i className="bi bi-people me-2"></i> My Enrolled Classes
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/dashboard/allusers" className="nav-link">
+        <Link to="/dashboard/" className="nav-link">
           <i className="bi bi-people me-2"></i> Payment
         </Link>
       </li>
