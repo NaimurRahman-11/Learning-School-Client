@@ -29,6 +29,7 @@ import PrivateRoute from './Routes/PrivateRoute';
 import Instructors from './components/Instructors/Instructors';
 import SelectedClasses from './components/Dashboard/SelectedClasses/SelectedClasses';
 import ErrorPage from './components/ErrorPage/error-page';
+import Payment from './components/Dashboard/Payment/Payment';
 
 
 
@@ -120,6 +121,11 @@ const router = createBrowserRouter([
       {
         path: "selected-classes",
         element: <SelectedClasses></SelectedClasses>,
+        errorElement: <ErrorPage></ErrorPage>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
         errorElement: <ErrorPage></ErrorPage>,
       }
 

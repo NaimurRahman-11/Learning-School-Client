@@ -28,7 +28,7 @@ const Instructors = () => {
                 </thead>
                 <tbody>
                     {users.map((instructor, index) => (
-                        <tr key={instructor.id}>
+                        <tr key={instructor._id}>
                              <td>{index + 1}</td>
                             <td> {instructor.photo ? (
                                     <img src={instructor.photo} className="img-fluid rounded" style={{ objectFit: "contain", height: "130px" }} />

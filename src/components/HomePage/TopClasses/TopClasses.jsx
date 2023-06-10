@@ -4,8 +4,7 @@ import {  useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Fade } from "react-awesome-reveal";
-import useAdmin from "../../hooks/useAdmin";
-import useInstructor from "../../hooks/useInstructor";
+
 
 const TopClasses = () => {
 
@@ -13,8 +12,7 @@ const TopClasses = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
-  const [isAdmin] = useAdmin();
-  const [isInstructor] = useInstructor();
+
 
 
   
@@ -109,10 +107,11 @@ const TopClasses = () => {
                 <p className="card-text">{instructor.instructorEmail}</p>
                 <p className="card-text">{instructor.instructorName}</p>
                 <p className="card-text">{instructor.availableSeats}</p>
+                <p className="card-text">{instructor.price}</p>
                
                 
                 <button onClick={() => handleAddToCart(instructor)}
-                  disabled={selectedItems.includes(instructor._id) || isAdmin || isInstructor}
+                  disabled={selectedItems.includes(instructor._id)}
                   className="btn btn-warning"> {selectedItems.includes(instructor._id)
                     ? "Selected" : "Select"}</button>
                         

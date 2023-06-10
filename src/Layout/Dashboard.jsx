@@ -78,7 +78,7 @@ const Dashboard = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/dashboard/" className="nav-link">
+        <Link to="/dashboard/payment" className="nav-link">
           <i className="bi bi-people me-2"></i> Payment
         </Link>
       </li>
