@@ -7,6 +7,7 @@ const ManageClasses = () => {
         const res = await fetch('http://localhost:5000/allclasses')
         return res.json();
     })
+    
 
 
     const handleApproveClass = async (classId) => {
