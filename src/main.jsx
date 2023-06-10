@@ -28,6 +28,7 @@ import ViewDetails from './components/ViewDetails/ViewDetails';
 import PrivateRoute from './Routes/PrivateRoute';
 import Instructors from './components/Instructors/Instructors';
 import SelectedClasses from './components/Dashboard/SelectedClasses/SelectedClasses';
+import ErrorPage from './components/ErrorPage/error-page';
 
 
 
@@ -43,34 +44,41 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
 
     children: [
 
       {
         path: "/",
         element: <HomePage></HomePage>,
+        errorElement: <ErrorPage></ErrorPage>,
 
       },
       {
         path: "/login",
         element: <Login></Login>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "/register",
         element: <Register></Register>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "/classes",
         element: <ClassPage></ClassPage>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "/view-details/:id",
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       
       {
         path: "/instructors",
         element: <Instructors></Instructors>,
+        errorElement: <ErrorPage></ErrorPage>,
       }
 
 
@@ -81,31 +89,38 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Dashboard></Dashboard>,
+    errorElement: <ErrorPage></ErrorPage>,
 
     children: [
       {
         path: "user",
         element: <UserDash></UserDash>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "allusers",
         element: <AllUsers></AllUsers>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "addclass",
         element: <AddClass></AddClass>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "myclasses",
         element: <MyClasses></MyClasses>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "manageclasses",
         element: <ManageClasses></ManageClasses>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: "selected-classes",
         element: <SelectedClasses></SelectedClasses>,
+        errorElement: <ErrorPage></ErrorPage>,
       }
 
     ]

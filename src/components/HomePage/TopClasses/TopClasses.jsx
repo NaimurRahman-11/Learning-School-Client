@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import {  useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 
 const TopClasses = () => {
 
@@ -92,8 +93,9 @@ const TopClasses = () => {
 
   return (
       <div className="container">
-          <h1 className="text-center p-5">Top Classes</h1>    
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      <Fade cascade>
+        <h1 className="text-center p-5">Top Classes</h1>  
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         {approvedClasses.map((instructor, index) => (
           <div className="col mb-4" key={index}>
             <div className="card">
@@ -115,7 +117,9 @@ const TopClasses = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div>  
+          </Fade>
+      
     </div>
   );
 };

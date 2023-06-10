@@ -19,6 +19,7 @@ const Instructors = () => {
             <table className="table">
                 <thead>
                     <tr>
+                    <th>#</th>
                     <th>Image</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -26,8 +27,9 @@ const Instructors = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map(instructor => (
+                    {users.map((instructor, index) => (
                         <tr key={instructor.id}>
+                             <td>{index + 1}</td>
                             <td> {instructor.photo ? (
                                     <img src={instructor.photo} className="img-fluid rounded" style={{ objectFit: "contain", height: "130px" }} />
                                 ) : (
