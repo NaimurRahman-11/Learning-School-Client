@@ -63,9 +63,9 @@ const ClassPage = () => {
                             image: classPhotoURL,
                             price,
                             email: user.email,
-                            seats: availableSeats,
+                            seats: parseInt(availableSeats),
                             instructorName: instructorName,
-                            enrolledStudents: enrolledStudents
+                            enrolledStudents: parseInt(enrolledStudents)
                         };
                         fetch("http://localhost:5000/carts", {
                             method: "POST",

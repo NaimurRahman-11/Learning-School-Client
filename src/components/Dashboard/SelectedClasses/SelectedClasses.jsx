@@ -83,7 +83,7 @@ const SelectedClasses = () => {
                                 <th scope="col">Image</th>
                                 <th scope="col">Class Name</th>
                                 <th scope="col">Instructor Name</th>
-                                <th scope="col">Total Enrolled Students</th>
+                               
                                 <th scope="col">Price</th>
                                 <th scope="col">Action</th>
 
@@ -98,8 +98,8 @@ const SelectedClasses = () => {
                                     <td>{classItem.className}</td>
                                     <td>{classItem.instructorName}</td>
 
-                                    <td>{classItem.enrolledStudents || 0}</td>
-                                    <td>{classItem.price}</td>
+                                   
+                                    <td>${classItem.price}</td>
                                     <td><button onClick={() => handleDeleteUser(classItem._id)} className="btn btn-danger">Delete</button></td>
 
 

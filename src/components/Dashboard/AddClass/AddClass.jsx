@@ -22,9 +22,9 @@ const AddClass = () => {
         const instructorName = user.displayName;
         const classPhotoURL = form.classPhotoURL.value;
         const instructorEmail = user.email;
-        const availableSeats = form.availableSeats.value;
+        const availableSeats = parseInt(form.availableSeats.value);
         const price = form.price.value;
-        const enrolledStudents = 0;
+        const enrolledStudents = parseInt(0);
         
 
         const newClass = {className, instructorName, classPhotoURL, instructorEmail, availableSeats, price, enrolledStudents}

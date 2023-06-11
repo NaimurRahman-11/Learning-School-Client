@@ -103,14 +103,14 @@ const ManageClasses = () => {
                                             <div>
                                                 <button
                                                     onClick={() => handleApproveClass(classItem._id)}
-                                                    className="btn btn-success"
+                                                    className="btn primaryBtn m-2"
                                                     disabled={classItem.status !== "pending"}
                                                 >
                                                     Approve
                                                 </button>
                                                 <button
                                                     onClick={() => handleDenyClass(classItem._id)}
-                                                    className="btn btn-danger ml-2"
+                                                    className="btn btn-danger m-2"
                                                     disabled={classItem.status !== "pending"}>Deny </button>
                                             </div>)}
 
