@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Bounce } from "react-awesome-reveal";
 
 
 
@@ -14,35 +15,30 @@ const Instructors = () => {
     });
 
     return (
-        <div className="container">
-            <h1>{users.length}</h1>
-            <table className="table">
-                <thead>
-                    <tr>
-                    <th>#</th>
-                    <th>Image</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        {/* Add additional columns if needed */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((instructor, index) => (
-                        <tr key={instructor._id}>
-                             <td>{index + 1}</td>
-                            <td> {instructor.photo ? (
-                                    <img src={instructor.photo} className="img-fluid rounded" style={{ objectFit: "contain", height: "130px" }} />
-                                ) : (
-                                    "No photo"
-                                )}</td>
-                            <td>{instructor.name}</td>
-                            <td>{instructor.email}</td>
-                            {/* Add additional columns if needed */}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+        <Bounce>
+            <div className="container mt-5">
+            
+            
+    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      {users.map((instructor, index) => (
+        <div className="col mb-4" key={index}>
+          <div className="card">
+            <img src={instructor.photo} className="card-img-top img-fluid" alt="" style={{ objectFit: "contain", height: "230px" }} />
+            <div className="card-body">
+              <h5 className="card-title">{instructor.name}</h5>
+              <p className="card-text">{instructor.email}</p>
+              
+            
+                      
+                     
+            </div>
+          </div>
         </div>
+      ))}
+    </div>
+        
+  </div>
+        </Bounce>
     );
 };
 

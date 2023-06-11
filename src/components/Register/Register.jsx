@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import useTitle from "../hooks/useTitle";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider } from "firebase/auth";
 
 
 
@@ -13,9 +15,18 @@ const Register = () => {
     useTitle('Register');
     const navigate = useNavigate()
 
+    const from = location.state?.from?.pathname || '/';
+
+    const [errorMessage, setErrorMessage] = useState(null);
+    
+   
+
+    const { googleSignIn } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+
     const { createUser, updateUserProfile } = useContext(AuthContext);
 
-    const { register, handleSubmit, reset, formState: { errors, isValid }, getValues } = useForm();
+    const { register, handleSubmit, reset, formState: { errors }, getValues } = useForm();
 
 
 
@@ -69,6 +80,41 @@ const Register = () => {
             .catch(error => console.log(error));
     }
 
+
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log('sign in', user);
+
+                const saveUser = { name: user.displayName, email: user.email }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        
+                            navigate(from, { replace: true });
+                        
+                    })
+
+
+
+                
+
+            })
+            .catch(error => {
+                setErrorMessage(error.message);
+                console.log(error);
+
+            })
+    }
+
     return (
         <div className="container mb-5 p-5" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/drawing-guitar-other-instruments-including-guitar_899870-7416.jpg?w=826')" }}>
             <div className="row justify-content-center">
@@ -76,6 +122,11 @@ const Register = () => {
                     <div className="card">
                         <div className="card-body">
                             <h3 className="card-title text-center">Register Here!</h3>
+                            {errorMessage && (
+                                <div className="alert alert-danger" role="alert">
+                                    {errorMessage}
+                                </div>
+                            )}
                             <form onSubmit={handleSubmit(handleRegister)}>
 
                                 <div className="mb-3">
@@ -127,6 +178,7 @@ const Register = () => {
 
                                         required
                                     />
+                                    
                                     {errors.password && (
                                         <p className="text-danger">
                                             Password must contain at least one capital letter and one special character.
@@ -148,8 +200,11 @@ const Register = () => {
 
                                         required
                                     />
+                                   
                                     {errors.confirmPassword && (
-                                        <p className="text-danger">{errors.confirmPassword.message}</p>
+                                        <p className="text-danger">
+                                        Password must contain at least one capital letter and one special character.
+                                    </p>
                                     )}
                                 </div>
 
@@ -165,7 +220,7 @@ const Register = () => {
 
                                     />
                                 </div>
-                                <button type="submit" className="btn primaryBtn w-100" disabled={!isValid}>
+                                <button type="submit" className="btn primaryBtn w-100" >
                                     Submit
                                 </button>
                             </form>
@@ -173,6 +228,11 @@ const Register = () => {
                                 Already have an account?{" "}
                                 <Link to="/login">Login here</Link>.
                             </p>
+
+                            <hr />
+                            <div className="text-center">
+                            <Link className="" onClick={handleGoogleSignIn}><button className="btn primaryBtn">Sign in with <FaGoogle  className='iconSize'></FaGoogle></button></Link>
+                            </div>
                         </div>
                     </div>
                 </div>
