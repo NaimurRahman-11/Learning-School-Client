@@ -30,6 +30,7 @@ import Instructors from './components/Instructors/Instructors';
 import SelectedClasses from './components/Dashboard/SelectedClasses/SelectedClasses';
 import ErrorPage from './components/ErrorPage/error-page';
 import Payment from './components/Dashboard/Payment/Payment';
+import EnrolledClasses from './components/Dashboard/EnrolledClasses/EnrolledClasses';
 
 
 
@@ -126,6 +127,11 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment></Payment>,
+        errorElement: <ErrorPage></ErrorPage>,
+      },
+      {
+        path: "enrolled-classes",
+        element: <EnrolledClasses></EnrolledClasses>,
         errorElement: <ErrorPage></ErrorPage>,
       }
 
