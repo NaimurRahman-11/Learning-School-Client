@@ -49,7 +49,7 @@ const HomePage = () => {
                                             required
                                         />
                                         <button
-                                            className="btn btn-warning"
+                                            className="btn primaryBtn"
                                             type="button"
                                             id="subscribe-btn"
 

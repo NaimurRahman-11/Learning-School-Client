@@ -108,7 +108,7 @@ const SelectedClasses = () => {
                             ))}
                         </tbody>
                     </table>
-                    <div className="text-center mt-5"> <Link to='/dashboard/payment' > <button className="btn btn-warning">Ready to Pay?</button> </Link></div>
+                    <div className="text-center mt-5"> <Link to='/dashboard/payment' > <button className="btn primaryBtn">Ready to Pay?</button> </Link></div>
 
                 </div>
             </div>

@@ -17,9 +17,7 @@ const EnrolledClasses = () => {
     .filter((payment) => payment.email === user?.email)
     .map((payment) => ({
       ...payment,
-      classNames: payment.itemNames.map((itemName) => (
-        <div key={itemName}>{itemName}</div>
-      ))
+      classNames: payment.itemNames.join(", ") // Join the item names with a comma separator
     }));
     
 
@@ -35,7 +33,6 @@ const EnrolledClasses = () => {
               <th>Price</th>
               <th>Date</th>
               <th>Class Name</th>
-              {/* Add additional columns if needed */}
             </tr>
           </thead>
           <tbody>
@@ -47,7 +44,6 @@ const EnrolledClasses = () => {
                 <td>${payment.price}</td>
                 <td>{payment.date}</td>
                 <td>{payment.classNames}</td>
-                {/* Add additional columns if needed */}
               </tr>
             ))}
           </tbody>
