@@ -98,7 +98,7 @@ const SelectedClasses = () => {
                                     <td>{classItem.className}</td>
                                     <td>{classItem.instructorName}</td>
 
-                                    <td>{classItem.totalEnrolledStudents || 0}</td>
+                                    <td>{classItem.enrolledStudents || 0}</td>
                                     <td>{classItem.price}</td>
                                     <td><button onClick={() => handleDeleteUser(classItem._id)} className="btn btn-danger">Delete</button></td>
 

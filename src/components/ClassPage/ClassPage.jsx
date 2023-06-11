@@ -56,7 +56,7 @@ const ClassPage = () => {
                             timer: 1500
                         });
                     } else {
-                        const { _id, className, classPhotoURL, price, availableSeats, instructorName } = instructor;
+                        const { _id, className, classPhotoURL, price, availableSeats, instructorName, enrolledStudents } = instructor;
                         const cartItem = {
                             classItemId: _id,
                             className,
@@ -64,7 +64,8 @@ const ClassPage = () => {
                             price,
                             email: user.email,
                             seats: availableSeats,
-                            instructorName: instructorName
+                            instructorName: instructorName,
+                            enrolledStudents: enrolledStudents
                         };
                         fetch("http://localhost:5000/carts", {
                             method: "POST",
@@ -124,6 +125,7 @@ const ClassPage = () => {
                                     <h5 className="card-title"><b>Class Name: {instructor.className}</b></h5>
                                     <p className="card-text">Instructor Name: {instructor.instructorName}</p>
                                     <p className="card-text">Available Seats: {instructor.availableSeats}</p>
+                                    <p className="card-text">Enrolled Students: {instructor.enrolledStudents}</p>
                                     <p className="card-text"><b>Price: ${instructor.price}</b></p>
 
 

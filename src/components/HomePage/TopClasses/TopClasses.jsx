@@ -19,8 +19,8 @@ const TopClasses = () => {
 
 
 
-  const { data: approvedClasses = [], refetch } = useQuery(['approved-classes'], async () => {
-    const res = await fetch('http://localhost:5000/approved-classes')
+  const { data: approvedClasses = [], refetch } = useQuery(['top-classes'], async () => {
+    const res = await fetch('http://localhost:5000/top-classes')
     return res.json();
   })
 
@@ -41,7 +41,7 @@ const TopClasses = () => {
               timer: 1500
             });
           } else {
-            const { _id, className, classPhotoURL, price, availableSeats, instructorName } = instructor;
+            const { _id, className, classPhotoURL, price, availableSeats, instructorName, enrolledStudents } = instructor;
             const cartItem = {
               classItemId: _id,
               className,
@@ -49,7 +49,8 @@ const TopClasses = () => {
               price,
               email: user.email,
               seats: availableSeats,
-              instructorName: instructorName
+              instructorName: instructorName,
+              enrolledStudents: enrolledStudents
             };
             fetch("http://localhost:5000/carts", {
               method: "POST",
@@ -106,6 +107,7 @@ const TopClasses = () => {
               <h5 className="card-title"><b>Class Name: {instructor.className}</b></h5>
                                     <p className="card-text">Instructor Name: {instructor.instructorName}</p>
                                     <p className="card-text">Available Seats: {instructor.availableSeats}</p>
+                                    <p className="card-text">Enrolled Students: {instructor.enrolledStudents}</p>
                                     <p className="card-text"><b>Price: ${instructor.price}</b></p>
                
                 

@@ -8,6 +8,7 @@ import TopClasses from "../TopClasses/TopClasses";
 
 
 
+
 const HomePage = () => {
 
 
@@ -20,6 +21,7 @@ const HomePage = () => {
 
 
             <Banner></Banner>
+            
             <TopClasses></TopClasses>
             <PopularInstructors></PopularInstructors>
 

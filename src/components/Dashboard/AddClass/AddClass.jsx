@@ -24,9 +24,10 @@ const AddClass = () => {
         const instructorEmail = user.email;
         const availableSeats = form.availableSeats.value;
         const price = form.price.value;
+        const enrolledStudents = 0;
         
 
-        const newClass = {className, instructorName, classPhotoURL, instructorEmail, availableSeats, price}
+        const newClass = {className, instructorName, classPhotoURL, instructorEmail, availableSeats, price, enrolledStudents}
         console.log(newClass);
 
         axiosSecure
@@ -130,7 +131,7 @@ const AddClass = () => {
                                         Available Seats
                                     </label>
                                     <input
-                                        type="text"
+                                        type="number"
                                         className="form-control"
                                         id="availableSeats"
                                         placeholder=""
