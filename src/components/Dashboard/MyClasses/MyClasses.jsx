@@ -47,7 +47,7 @@ const MyClasses = () => {
 
     return (
         <div>
-            <h1>{classes.length}</h1>
+            <h1>Total Classes: {classes.length}</h1>
 
             <div className="container">
                 <div className="table-responsive">

@@ -141,9 +141,9 @@ const AllUsers = () => {
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td className="">{user.role === 'admin' ? 'admin' :
-                                        <button onClick={() => handleMakeAdmin(user)} className=" btn primaryBtn me-3" disabled={isDisabled(user._id)}>make admin</button>}
+                                        <button onClick={() => handleMakeAdmin(user)} className="p-2 mb-2 me-2 btn primaryBtn" disabled={isDisabled(user._id)}>make admin</button>}
                                         {user.role === 'instructor' ? 'instructor' :
-                                            <button onClick={() => handleMakeInstructor(user)} className="btn primaryBtn" disabled={isDisabled(user._id)}>make instructor</button>}
+                                            <button onClick={() => handleMakeInstructor(user)} className="p-2 me-2 btn primaryBtn" disabled={isDisabled(user._id)}>make instructor</button>}
                                     </td>
 
 

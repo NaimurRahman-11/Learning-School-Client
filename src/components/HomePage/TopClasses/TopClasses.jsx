@@ -98,21 +98,20 @@ const TopClasses = () => {
       <Fade cascade>
         <h1 className="text-center p-5">Top Classes</h1>  
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-        {approvedClasses.map((instructor, index) => (
+        {approvedClasses.slice(0, 6).map((instructor, index) => (
           <div className="col mb-4" key={index}>
             <div className="card">
               <img src={instructor.classPhotoURL} className="card-img-top img-fluid" alt="" style={{ objectFit: "contain", height: "230px" }} />
               <div className="card-body">
-                <h5 className="card-title">{instructor.className}</h5>
-                <p className="card-text">{instructor.instructorEmail}</p>
-                <p className="card-text">{instructor.instructorName}</p>
-                <p className="card-text">{instructor.availableSeats}</p>
-                <p className="card-text">{instructor.price}</p>
+              <h5 className="card-title"><b>Class Name: {instructor.className}</b></h5>
+                                    <p className="card-text">Instructor Name: {instructor.instructorName}</p>
+                                    <p className="card-text">Available Seats: {instructor.availableSeats}</p>
+                                    <p className="card-text"><b>Price: ${instructor.price}</b></p>
                
                 
                 <button onClick={() => handleAddToCart(instructor)}
                   disabled={selectedItems.includes(instructor._id)}
-                  className="btn btn-warning"> {selectedItems.includes(instructor._id)
+                  className="btn primaryBtn"> {selectedItems.includes(instructor._id)
                     ? "Selected" : "Select"}</button>
                         
                        

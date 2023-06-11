@@ -52,7 +52,7 @@ const AddClass = () => {
     }
 
     return (
-        <div className="container mb-5 rounded">
+        <div className="container mb-5 mt-5 rounded">
             <div className="row justify-content-center">
 
                 <div className="col-md-6 col-sm-8">
@@ -100,6 +100,7 @@ const AddClass = () => {
                                         id="instructorName"
                                         placeholder=""
                                         defaultValue={user.displayName}
+                                        readOnly
 
 
 
@@ -117,6 +118,7 @@ const AddClass = () => {
                                         placeholder=""
                                         defaultValue={user.email}
                                         required
+                                        readOnly
 
 
 
@@ -155,7 +157,7 @@ const AddClass = () => {
 
                                
 
-                                <button type="submit" className="btn btn-warning w-100">
+                                <button type="submit" className="btn primaryBtn w-100">
                                     Add
                                 </button>
                             </form>

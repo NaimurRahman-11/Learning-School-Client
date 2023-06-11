@@ -2,6 +2,9 @@ import { Link, Outlet } from "react-router-dom";
 import logo from '../assets/logo.png';
 import useAdmin from "../components/hooks/useAdmin";
 import useInstructor from "../components/hooks/useInstructor";
+import { FaBookmark, FaEdit, FaHouseUser, FaUsers } from "react-icons/fa";
+import { AiFillFileAdd, AiFillHome } from "react-icons/ai";
+import { GiMoneyStack, GiNotebook } from "react-icons/gi";
 
 
 
@@ -19,18 +22,18 @@ const Dashboard = () => {
   const renderAdminMenu = () => (
     <>
       <li className="nav-item">
-        <Link to="/dashboard" className="nav-link">
-          <i className="bi bi-speedometer2 me-2"></i> Admin Home
+        <Link to="/dashboard/user" className="nav-link">
+        <FaHouseUser className="me-2"></FaHouseUser> Admin Home
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/dashboard/allusers" className="nav-link">
-          <i className="bi bi-people me-2"></i> Manage Users
+         <FaUsers className="me-2"></FaUsers> Manage Users
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/dashboard/manageclasses" className="nav-link">
-          <i className="bi bi-basket2 me-2"></i> Manage Classes
+         <FaEdit className="me-2"></FaEdit> Manage Classes
         </Link>
       </li>
     </>
@@ -41,18 +44,18 @@ const Dashboard = () => {
   const renderInstructorMenu = () => (
     <>
       <li className="nav-item">
-        <Link to="/dashboard" className="nav-link">
-          <i className="bi bi-speedometer2 me-2"></i> Instructor Home
+        <Link to="/dashboard/user" className="nav-link">
+        <FaHouseUser className="me-2"></FaHouseUser> Instructor Home
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/dashboard/myclasses" className="nav-link">
-          <i className="bi bi-people me-2"></i> My Classes
+        <GiNotebook className="me-2"></GiNotebook>  My Classes
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/dashboard/addclass" className="nav-link">
-          <i className="bi bi-people me-2"></i> Add a Class
+         <AiFillFileAdd className="me-2"></AiFillFileAdd> Add a Class
         </Link>
       </li>
     </>
@@ -63,23 +66,23 @@ const Dashboard = () => {
   const renderStudentMenu = () => (
     <>
       <li className="nav-item">
-        <Link to="/dashboard" className="nav-link">
-          <i className="bi bi-speedometer2 me-2"></i> User Home
+        <Link to="/dashboard/user" className="nav-link">
+          <FaHouseUser className="me-2"></FaHouseUser> User Home
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/dashboard/selected-classes" className="nav-link">
-          <i className="bi bi-people me-2"></i> My Selected Classes
+          <GiNotebook className="me-2"></GiNotebook> My Selected Classes
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/dashboard/enrolled-classes" className="nav-link">
-          <i className="bi bi-people me-2"></i> My Enrolled Classes
+          <FaBookmark className="me-2"></FaBookmark> My Enrolled Classes
         </Link>
       </li>
       <li className="nav-item">
         <Link to="/dashboard/payment" className="nav-link">
-          <i className="bi bi-people me-2"></i> Payment
+          <GiMoneyStack className="me-2"></GiMoneyStack> Payment
         </Link>
       </li>
     </>
@@ -106,16 +109,16 @@ const Dashboard = () => {
           <hr />
 
           <li className="nav-item">
-        <Link to="/" className="nav-link">
-          <i className="bi bi-people me-2"></i> Home
-        </Link>
-      </li>
+            <Link to="/" className="nav-link">
+              <AiFillHome className="me-2"></AiFillHome> Home
+            </Link>
+          </li>
 
 
 
         </ul>
 
-        
+
 
 
 

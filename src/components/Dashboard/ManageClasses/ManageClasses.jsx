@@ -68,8 +68,8 @@ const ManageClasses = () => {
     
 
     return (
-        <div>
-            <h1>{classes.length}</h1>
+        <div className="container mt-5">
+            
 
             <div className="container">
                 <div className="table-responsive">
