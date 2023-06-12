@@ -4,6 +4,7 @@ import useTitle from "../../hooks/useTitle";
 import Banner from "../Banner/Banner";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import TopClasses from "../TopClasses/TopClasses";
+import OurPartners from "../OurPartners/OurPartners";
 
 
 
@@ -25,14 +26,15 @@ const HomePage = () => {
             
             <TopClasses></TopClasses>
             <PopularInstructors></PopularInstructors>
+            <OurPartners></OurPartners>
             
 
             <div>
                 <section className="subscribe-section py-5 mt-5 ">
                     <div className="container text-center">
                         <Bounce>
-                        <h2>Subscribe to Our Newsletter</h2>
-                        <p>Stay updated with the latest toys and offers!</p>
+                        <h2><b>Subscribe to Our Newsletter</b></h2>
+                        <p>Stay updated with the latest tutorials and offers!</p>
                         </Bounce>
                         <img
                             src="https://i.pinimg.com/originals/e2/12/7b/e2127b452438f766fab14c1480aebd0f.gif"
