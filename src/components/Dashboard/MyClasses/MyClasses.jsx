@@ -60,8 +60,9 @@ const MyClasses = () => {
                                 <th scope="col">Instructor Name</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Total Enrolled Students</th>
+                                <th scope="col">Price</th>
                                 <th scope="col">Feedback</th>
-                                <th scope="col">Update</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -72,7 +73,9 @@ const MyClasses = () => {
                                     <td>{classItem.className}</td>
                                     <td>{classItem.instructorName}</td>
                                     <td>{classItem.status}</td>
-                                    <td>{classItem.totalEnrolledStudents || 0}</td>
+                                    
+                                    <td>{classItem.enrolledStudents || 0}</td>
+                                    <td>${classItem.price}</td>
                                     <td>
                                         {classItem.status === "denied" ? (
                                             classItem.feedback

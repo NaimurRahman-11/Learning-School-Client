@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { Bounce } from "react-awesome-reveal";
+import { GrMail} from "react-icons/gr";
 
 const Instructors = () => {
   const [loading, setLoading] = useState(true);
@@ -47,8 +48,9 @@ const Instructors = () => {
                   style={{ objectFit: "contain", height: "230px" }}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{instructor.name}</h5>
-                  <p className="card-text">{instructor.email}</p>
+                  <h5 className="card-title"><b>Name: {instructor.name}</b></h5>
+                  <p className="card-text"><GrMail></GrMail> {instructor.email}</p>
+                 <i> <p>&quot; Live in your dream to be an expert with our qualified instructors  - (Learning School) &quot;</p></i>
                 </div>
               </div>
             </div>
