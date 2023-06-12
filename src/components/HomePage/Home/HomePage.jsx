@@ -5,6 +5,7 @@ import Banner from "../Banner/Banner";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import TopClasses from "../TopClasses/TopClasses";
 import OurPartners from "../OurPartners/OurPartners";
+import Slider from "../Slider/Slider";
 
 
 
@@ -23,6 +24,8 @@ const HomePage = () => {
 
 
             <Banner></Banner>
+
+            <Slider></Slider>
             
             <TopClasses></TopClasses>
             <PopularInstructors></PopularInstructors>
