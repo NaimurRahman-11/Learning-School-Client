@@ -32,6 +32,7 @@ const EnrolledClasses = () => {
             
               <th>Price</th>
               <th>Date</th>
+              <th>Status</th>
               
               
             </tr>
@@ -44,6 +45,7 @@ const EnrolledClasses = () => {
                 
                 <td>${payment.price}</td>
                 <td>{payment.date}</td>
+                <td className="text-success"><b>Paid</b></td>
                 
                
               </tr>

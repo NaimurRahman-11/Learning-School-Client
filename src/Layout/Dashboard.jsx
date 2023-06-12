@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import logo from '../assets/logo.png';
 import useAdmin from "../components/hooks/useAdmin";
 import useInstructor from "../components/hooks/useInstructor";
-import { FaBookmark, FaEdit, FaHouseUser, FaUsers } from "react-icons/fa";
+import { FaBookmark, FaEdit, FaHistory, FaHouseUser, FaUsers } from "react-icons/fa";
 import { AiFillFileAdd, AiFillHome } from "react-icons/ai";
 import { GiMoneyStack, GiNotebook } from "react-icons/gi";
 
@@ -87,7 +87,7 @@ const Dashboard = () => {
       </li>
       <li className="nav-item">
         <Link to="/dashboard/payment-history" className="nav-link">
-          <GiMoneyStack className="me-2"></GiMoneyStack> Payment History
+          <FaHistory className="me-2"></FaHistory> Payment History
         </Link>
       </li>
     </>
