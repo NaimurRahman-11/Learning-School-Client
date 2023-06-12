@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 
 import { Bounce } from "react-awesome-reveal";
 import { GrMail} from "react-icons/gr";
+import useTitle from "../hooks/useTitle";
 
 const Instructors = () => {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
+
+  useTitle('Instructors');
 
   useEffect(() => {
     const fetchUsers = async () => {

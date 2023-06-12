@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useTitle from "../hooks/useTitle";
 
 
 
@@ -16,6 +17,8 @@ const ClassPage = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [selectedItems, setSelectedItems] = useState([]);
+
+    useTitle('Classes');
 
 
     const location = useLocation();
