@@ -120,7 +120,7 @@ const ClassPage = () => {
                     {approvedClasses.map((instructor, index) => (
                         <div className="col mb-4" key={index}>
                             <div
-                                className={`card ${parseInt(instructor.availableSeats) === 0 ? "bg-danger" : ""
+                                className={`card shadow ${parseInt(instructor.availableSeats) === 0 ? "bg-danger" : ""
                                     }`}
                             >
                                 <img src={instructor.classPhotoURL} className="card-img-top img-fluid" alt="" style={{ objectFit: "contain", height: "230px" }} />

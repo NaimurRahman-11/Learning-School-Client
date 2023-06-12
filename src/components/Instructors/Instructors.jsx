@@ -43,7 +43,7 @@ const Instructors = () => {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {users.map((instructor, index) => (
             <div className="col mb-4" key={index}>
-              <div className="card">
+              <div className="card shadow">
                 <img
                   src={instructor.photo}
                   className="card-img-top img-fluid"
