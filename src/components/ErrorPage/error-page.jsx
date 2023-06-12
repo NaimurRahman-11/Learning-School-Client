@@ -1,4 +1,4 @@
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -11,7 +11,12 @@ export default function ErrorPage() {
       <p>
         <i>{error.statusText || error.message}</i>
       </p>
-      <img src="https://cdnl.iconscout.com/lottie/premium/thumb/page-not-response-5631129-4699348.gif" alt="" className="rounded img-fluid" />
+      <img src="https://cdnl.iconscout.com/lottie/premium/thumb/page-not-response-5631129-4699348.gif" alt="" className="rounded img-fluid" /> <br />
+      <div>
+        <Link to='/'><button className="btn primaryBtn">Back To Home</button></Link>
+      </div>
+
+      
     </div>
   );
 }

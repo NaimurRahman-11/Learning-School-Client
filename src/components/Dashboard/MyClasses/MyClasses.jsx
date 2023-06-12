@@ -62,6 +62,7 @@ const MyClasses = () => {
                                 <th scope="col">Total Enrolled Students</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Feedback</th>
+                                <th scope="col">Action</th>
                                
                             </tr>
                         </thead>

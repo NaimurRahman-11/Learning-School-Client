@@ -105,7 +105,7 @@ const TopClasses = () => {
   return (
     <div className="container">
       <Fade cascade>
-       <u> <h1 className="text-center p-5"><b>#Top Classes#</b></h1></u>
+       <u> <h1 className="text-center p-5"><b>#Popular Classes#</b></h1></u>
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {approvedClasses.slice(0, 6).map((instructor, index) => (
             <div className="col mb-4" key={index}>

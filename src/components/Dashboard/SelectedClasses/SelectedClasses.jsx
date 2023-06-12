@@ -97,7 +97,7 @@ const SelectedClasses = () => {
                                     <td><img src={classItem.image} alt="" className="img-fluid" style={{ objectFit: "contain", height: "130px" }} /></td>
                                     <td>{classItem.className}</td>
                                     <td>{classItem.instructorName}</td>
-                                    <td>{classItem.classItemId}</td>
+                                    
 
 
                                     <td>${classItem.price}</td>
