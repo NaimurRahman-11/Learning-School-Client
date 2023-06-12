@@ -31,6 +31,7 @@ import SelectedClasses from './components/Dashboard/SelectedClasses/SelectedClas
 import ErrorPage from './components/ErrorPage/error-page';
 import Payment from './components/Dashboard/Payment/Payment';
 import EnrolledClasses from './components/Dashboard/EnrolledClasses/EnrolledClasses';
+import PaymentHistory from './components/Dashboard/PaymentHistory/PaymentHistory';
 
 
 
@@ -132,6 +133,11 @@ const router = createBrowserRouter([
       {
         path: "enrolled-classes",
         element: <EnrolledClasses></EnrolledClasses>,
+        errorElement: <ErrorPage></ErrorPage>,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory></PaymentHistory>,
         errorElement: <ErrorPage></ErrorPage>,
       }
 

@@ -13,8 +13,16 @@ const TopClasses = () => {
   const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
 
+  const { data: users = [] } = useQuery(['users'], async () => {
+    const res = await fetch('http://localhost:5000/users')
+    return res.json();
+})
 
 
+  const isAdminOrInstructor = (email) => {
+    const user = users.find((user) => user.email === email);
+    return user && (user.role === "admin" || user.role === "instructor");
+};
   
 
 
@@ -48,7 +56,7 @@ const TopClasses = () => {
               image: classPhotoURL,
               price,
               email: user.email,
-              seats: availableSeats,
+              availableSeats: availableSeats,
               instructorName: instructorName,
               enrolledStudents: enrolledStudents
             };
@@ -111,10 +119,18 @@ const TopClasses = () => {
                                     <p className="card-text"><b>Price: ${instructor.price}</b></p>
                
                 
-                <button onClick={() => handleAddToCart(instructor)}
-                  disabled={selectedItems.includes(instructor._id)}
-                  className="btn primaryBtn"> {selectedItems.includes(instructor._id)
-                    ? "Selected" : "Select"}</button>
+                                    <button
+                                        onClick={() => handleAddToCart(instructor)}
+                                        disabled={
+                                            parseInt(instructor.availableSeats) === 0 ||
+                                            (user && isAdminOrInstructor(user.email))
+                                        }
+                                        className="btn primaryBtn"
+                                    >
+                                        {selectedItems.includes(instructor._id)
+                                            ? "Selected"
+                                            : "Select"}
+                                    </button>
                         
                        
               </div>

@@ -85,6 +85,11 @@ const Dashboard = () => {
           <GiMoneyStack className="me-2"></GiMoneyStack> Payment
         </Link>
       </li>
+      <li className="nav-item">
+        <Link to="/dashboard/payment-history" className="nav-link">
+          <GiMoneyStack className="me-2"></GiMoneyStack> Payment History
+        </Link>
+      </li>
     </>
   );
 

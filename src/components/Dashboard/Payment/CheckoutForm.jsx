@@ -28,6 +28,30 @@ const CheckoutForm = ({ cart, price }) => {
         }
     }, [price, axiosSecure]);
 
+
+
+    const updateClassEnrollment = async (classItemId) => {
+        const updatedClass = {
+            enrolledStudents: 1,        // Increase enrolledStudents by 1
+            availableSeats: -1         // Decrease availableSeats by 1
+          };
+      
+        
+        console.log(typeof updatedClass.enrolledStudents); // Check data type of enrolledStudents
+        console.log(typeof updatedClass.availableSeats); // Check data type of availableSeats
+      
+        axiosSecure.patch(`/approved-classes/${classItemId}`, updatedClass)
+          .then(res => {
+            console.log('Class updated:', res.data);
+          })
+          .catch(error => {
+            console.log('Error updating class:', error);
+          });
+      };
+      
+
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -84,9 +108,11 @@ const CheckoutForm = ({ cart, price }) => {
                     date: new Date(),
                     quantity: cart.length,
                     cartItems: cart.map(item => item._id),
-                    menuItems: cart.map(item => item.menuItemId),
+                    classItemsId: cart.map(item => item.classItemId),
                     status: 'service pending',
                     itemNames: cart.map(item => item.className)
+
+
                 };
 
                 axiosSecure.post('/payments', payment)
@@ -98,8 +124,15 @@ const CheckoutForm = ({ cart, price }) => {
                                 title: 'Payment Successful',
                                 text: 'Your payment has been successfully processed.',
                                 confirmButtonText: 'OK',
-                              });
-                        
+                            });
+
+
+                            // Update class enrollment for each cart item
+                            cart.forEach(item => {
+                                console.log('Class item ID:', item.classItemId);
+                                updateClassEnrollment(item.classItemId);
+                            });
+
                         }
                     })
                     .catch(error => {
@@ -115,7 +148,7 @@ const CheckoutForm = ({ cart, price }) => {
 
     return (
         <>
-            <h1>Payable Amount: ${ price}</h1>
+            <h1>Payable Amount: ${price}</h1>
             <form className="container" onSubmit={handleSubmit}>
                 <CardElement
                     options={{

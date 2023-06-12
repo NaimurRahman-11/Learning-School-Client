@@ -63,7 +63,7 @@ const ClassPage = () => {
                             image: classPhotoURL,
                             price,
                             email: user.email,
-                            seats: parseInt(availableSeats),
+                            availableSeats: parseInt(availableSeats),
                             instructorName: instructorName,
                             enrolledStudents: parseInt(enrolledStudents)
                         };

@@ -4,7 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 
 
-const EnrolledClasses = () => {
+const PaymentHistory = () => {
 
     const { user } = useContext(AuthContext);
 
@@ -28,11 +28,11 @@ const EnrolledClasses = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Class Name</th>
-            
+              <th>Email</th>
+              <th>Transaction ID</th>
               <th>Price</th>
               <th>Date</th>
-              
+              <th>Class Name</th>
               
             </tr>
           </thead>
@@ -40,12 +40,12 @@ const EnrolledClasses = () => {
             {userClasses.map((payment, index) => (
               <tr key={payment._id}>
                 <td>{index + 1}</td>
-                <td>{payment.classNames}</td>
-                
+                <td>{payment.email}</td>
+                <td>{payment.transactionId}</td>
                 <td>${payment.price}</td>
                 <td>{payment.date}</td>
+                <td>{payment.classNames}</td>
                 
-               
               </tr>
             ))}
           </tbody>
@@ -54,4 +54,4 @@ const EnrolledClasses = () => {
     );
 };
 
-export default EnrolledClasses;
+export default PaymentHistory;
