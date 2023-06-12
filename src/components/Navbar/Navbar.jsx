@@ -7,6 +7,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import logo from '../../assets/logo.png';
 
 
+
 const Navbar = () => {
 
 
@@ -17,6 +18,10 @@ const Navbar = () => {
             .then()
             .catch(error => console.log(error));
     }
+
+
+    
+
 
     return (
         <div className="container shadow rounded">

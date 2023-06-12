@@ -14,7 +14,7 @@ const SelectedClasses = () => {
 
 
     const { data: classes = [], refetch } = useQuery(['classes', { email: user.email }], async () => {
-        const res = await fetch(`http://localhost:5000/carts?email=${user.email}`);
+        const res = await fetch(`https://learning-school-server-beige.vercel.app/carts?email=${user.email}`);
         return res.json();
     });
 
@@ -83,7 +83,7 @@ const SelectedClasses = () => {
                                 <th scope="col">Image</th>
                                 <th scope="col">Class Name</th>
                                 <th scope="col">Instructor Name</th>
-                               
+
                                 <th scope="col">Price</th>
                                 <th scope="col">Action</th>
 
@@ -99,7 +99,7 @@ const SelectedClasses = () => {
                                     <td>{classItem.instructorName}</td>
                                     <td>{classItem.classItemId}</td>
 
-                                   
+
                                     <td>${classItem.price}</td>
                                     <td><button onClick={() => handleDeleteUser(classItem._id)} className="btn btn-danger">Delete</button></td>
 

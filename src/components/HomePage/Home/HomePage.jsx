@@ -9,6 +9,7 @@ import TopClasses from "../TopClasses/TopClasses";
 
 
 
+
 const HomePage = () => {
 
 
@@ -24,6 +25,7 @@ const HomePage = () => {
             
             <TopClasses></TopClasses>
             <PopularInstructors></PopularInstructors>
+            
 
             <div>
                 <section className="subscribe-section py-5 mt-5 ">

@@ -1,4 +1,4 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 
@@ -8,9 +8,9 @@ const MyClasses = () => {
     const { user } = useContext(AuthContext);
 
     const { data: classes = [], refetch } = useQuery(['classes', { email: user.email }], async () => {
-        const res = await fetch(`http://localhost:5000/classes?email=${user.email}`);
+        const res = await fetch(`https://learning-school-server-beige.vercel.app/classes?email=${user.email}`);
         return res.json();
-      });
+    });
 
 
 
@@ -19,7 +19,7 @@ const MyClasses = () => {
     const handleUpdateClass = async (classId) => {
         try {
             const response = await fetch(
-                `http://localhost:5000/classes/${classId}`,
+                `https://learning-school-server-beige.vercel.app/classes/${classId}`,
                 {
                     method: "PATCH",
                     headers: {
@@ -68,7 +68,7 @@ const MyClasses = () => {
                             {classes.map((classItem, index) => (
                                 <tr key={classItem._id}>
                                     <td>{index + 1}</td>
-                                    <td><img src={ classItem.classPhotoURL} alt="" className="img-fluid" style={{ objectFit: "contain", height: "130px" }}/></td>
+                                    <td><img src={classItem.classPhotoURL} alt="" className="img-fluid" style={{ objectFit: "contain", height: "130px" }} /></td>
                                     <td>{classItem.className}</td>
                                     <td>{classItem.instructorName}</td>
                                     <td>{classItem.status}</td>

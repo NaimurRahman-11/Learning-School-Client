@@ -15,9 +15,9 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
 
     const { user } = useContext(AuthContext);
-   
+
     const { data: classes = [] } = useQuery(['classes', { email: user.email }], async () => {
-        const res = await fetch(`http://localhost:5000/carts?email=${user.email}`);
+        const res = await fetch(`https://learning-school-server-beige.vercel.app/carts?email=${user.email}`);
         return res.json();
     });
 
@@ -27,11 +27,11 @@ const Payment = () => {
     );
 
     const price = parseFloat(total.toFixed(2));
-    
+
     return (
         <div className="container mt-5">
-           
-            
+
+
             <Elements stripe={stripePromise}>
                 <CheckoutForm cart={classes} price={price}></CheckoutForm>
             </Elements>

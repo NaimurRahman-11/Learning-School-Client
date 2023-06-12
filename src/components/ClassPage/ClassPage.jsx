@@ -25,12 +25,12 @@ const ClassPage = () => {
 
 
     const { data: approvedClasses = [], refetch } = useQuery(['approved-classes'], async () => {
-        const res = await fetch('http://localhost:5000/approved-classes')
+        const res = await fetch('https://learning-school-server-beige.vercel.app/approved-classes')
         return res.json();
     })
 
     const { data: users = [] } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://learning-school-server-beige.vercel.app/users')
         return res.json();
     })
 
@@ -43,7 +43,7 @@ const ClassPage = () => {
     const handleAddToCart = instructor => {
 
         if (user && user.email) {
-            fetch(`http://localhost:5000/carts?email=${user.email}`)
+            fetch(`https://learning-school-server-beige.vercel.app/carts?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     const selectedClassIds = data.map(item => item.classItemId);
@@ -67,7 +67,7 @@ const ClassPage = () => {
                             instructorName: instructorName,
                             enrolledStudents: parseInt(enrolledStudents)
                         };
-                        fetch("http://localhost:5000/carts", {
+                        fetch("https://learning-school-server-beige.vercel.app/carts", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json"

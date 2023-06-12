@@ -58,7 +58,7 @@ const Login = () => {
                 console.log('sign in', user);
 
                 const saveUser = { name: user.displayName, email: user.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://learning-school-server-beige.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -67,14 +67,14 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                        
-                            navigate(from, { replace: true });
-                        
+
+                        navigate(from, { replace: true });
+
                     })
 
 
 
-                
+
 
             })
             .catch(error => {
@@ -85,7 +85,7 @@ const Login = () => {
     }
 
     return (
-        <div className="container mb-5 p-5" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/drawing-guitar-other-instruments-including-guitar_899870-7416.jpg?w=826')"}}>
+        <div className="container mb-5 p-5" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/drawing-guitar-other-instruments-including-guitar_899870-7416.jpg?w=826')" }}>
             <div className="row justify-content-center">
                 <div className="col-md-6 col-sm-8">
                     <div className="card">
@@ -136,11 +136,11 @@ const Login = () => {
                                 <Link to="/register">Sign up here</Link>.
                             </p>
 
-                           <hr />
+                            <hr />
                             <div className="text-center">
-                            <Link className="" onClick={handleGoogleSignIn}><button className="btn primaryBtn">Sign in with <FaGoogle  className='iconSize'></FaGoogle></button></Link>
+                                <Link className="" onClick={handleGoogleSignIn}><button className="btn primaryBtn">Sign in with <FaGoogle className='iconSize'></FaGoogle></button></Link>
                             </div>
-                           
+
                         </div>
 
                     </div>

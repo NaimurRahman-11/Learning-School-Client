@@ -1,45 +1,62 @@
-import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
+
 import { Bounce } from "react-awesome-reveal";
 
-
-
 const Instructors = () => {
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
 
-    
-
-
-    const { data: users = [] } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users');
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await fetch(
+          "https://learning-school-server-beige.vercel.app/users"
+        );
         const data = await res.json();
-        return data.filter(user => user.role === 'instructor'); 
-    });
+        const filteredUsers = data.filter((user) => user.role === "instructor");
+        setUsers(filteredUsers);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        setLoading(false);
+      }
+    };
 
-    return (
-        <Bounce>
-            <div className="container mt-5">
-            
-            
-    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-      {users.map((instructor, index) => (
-        <div className="col mb-4" key={index}>
-          <div className="card">
-            <img src={instructor.photo} className="card-img-top img-fluid" alt="" style={{ objectFit: "contain", height: "230px" }} />
-            <div className="card-body">
-              <h5 className="card-title">{instructor.name}</h5>
-              <p className="card-text">{instructor.email}</p>
-              
-            
-                      
-                     
-            </div>
-          </div>
-        </div>
-      ))}
+    fetchUsers();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center">
+    <div className="spinner-border" role="status">
+      <span className="visually-hidden">Loading...</span>
     </div>
-        
-  </div>
-        </Bounce>
-    );
+  </div>;
+  }
+
+  return (
+    <Bounce>
+      <div className="container mt-5">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          {users.map((instructor, index) => (
+            <div className="col mb-4" key={index}>
+              <div className="card">
+                <img
+                  src={instructor.photo}
+                  className="card-img-top img-fluid"
+                  alt=""
+                  style={{ objectFit: "contain", height: "230px" }}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{instructor.name}</h5>
+                  <p className="card-text">{instructor.email}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Bounce>
+  );
 };
 
 export default Instructors;

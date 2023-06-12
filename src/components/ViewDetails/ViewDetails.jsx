@@ -11,25 +11,25 @@ const ViewDetails = () => {
     useTitle('View Details');
     const { id } = useParams();
 
-    
+
 
     const { data: classes, isLoading, error } = useQuery(
         ['classDetails', id],
         async () => {
-          const response = await fetch(`http://localhost:5000/classes/${id}`);
-          const data = await response.json();
-          return data;
+            const response = await fetch(`https://learning-school-server-beige.vercel.app/classes/${id}`);
+            const data = await response.json();
+            return data;
         }
-      );
-    
-      if (isLoading) {
+    );
+
+    if (isLoading) {
         return <div>Loading...</div>;
-      }
-    
-      if (error) {
+    }
+
+    if (error) {
         return <div>Error fetching class details</div>;
-      }
-    
+    }
+
 
 
     return (
@@ -45,10 +45,10 @@ const ViewDetails = () => {
                         <div className="col-md-4 shadow rounded p-5">
                             <h2>Toy Name: {classes.className}</h2>
                             <p className="text-muted">{classes.instructorName}</p>
-                           
+
                             <p className="">Seller: {classes.instructorEmail}</p>
-                           
-                            
+
+
                             <h3>Price: ${classes.price}</h3>
                             <Link to='/classes'><button className="btn btn-warning mt-3">Back to All Toys</button></Link>
                             <Link to=''><button className="btn btn-warning mt-3 ms-2">Purchase</button></Link>

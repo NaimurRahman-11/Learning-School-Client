@@ -4,16 +4,16 @@ import { useQuery } from "@tanstack/react-query";
 const ManageClasses = () => {
 
     const { data: classes = [], refetch } = useQuery(['allclasses'], async () => {
-        const res = await fetch('http://localhost:5000/allclasses')
+        const res = await fetch('https://learning-school-server-beige.vercel.app/allclasses')
         return res.json();
     })
-    
+
 
 
     const handleApproveClass = async (classId) => {
         try {
             const response = await fetch(
-                `http://localhost:5000/allclasses/${classId}`,
+                `https://learning-school-server-beige.vercel.app/allclasses/${classId}`,
                 {
                     method: "PATCH",
                     headers: {
@@ -40,36 +40,36 @@ const ManageClasses = () => {
 
     const handleDenyClass = async (classId) => {
         try {
-          const response = await fetch(
-            `http://localhost:5000/allclasses/${classId}`,
-            {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                status: "denied",
-              }),
-            }
+            const response = await fetch(
+                `https://learning-school-server-beige.vercel.app/allclasses/${classId}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        status: "denied",
+                    }),
+                }
             );
-            
-            
-    
-          if (response.ok) {
-            // Class updated successfully, refetch the data
-            refetch();
-          } else {
-            console.error("Failed to update class");
-          }
+
+
+
+            if (response.ok) {
+                // Class updated successfully, refetch the data
+                refetch();
+            } else {
+                console.error("Failed to update class");
+            }
         } catch (error) {
-          console.error("Error updating class:", error);
+            console.error("Error updating class:", error);
         }
-      };
-    
+    };
+
 
     return (
         <div className="container mt-5">
-            
+
 
             <div className="container">
                 <div className="table-responsive">

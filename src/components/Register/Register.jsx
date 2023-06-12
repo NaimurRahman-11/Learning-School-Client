@@ -18,8 +18,8 @@ const Register = () => {
     const from = location.state?.from?.pathname || '/';
 
     const [errorMessage, setErrorMessage] = useState(null);
-    
-   
+
+
 
     const { googleSignIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
@@ -49,7 +49,7 @@ const Register = () => {
                     .then(() => {
 
                         const saveUser = { name: event.name, email: event.email, photo: event.photoURL }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://learning-school-server-beige.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -89,7 +89,7 @@ const Register = () => {
                 console.log('sign in', user);
 
                 const saveUser = { name: user.displayName, email: user.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://learning-school-server-beige.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -98,14 +98,14 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                        
-                            navigate(from, { replace: true });
-                        
+
+                        navigate(from, { replace: true });
+
                     })
 
 
 
-                
+
 
             })
             .catch(error => {
@@ -178,7 +178,7 @@ const Register = () => {
 
                                         required
                                     />
-                                    
+
                                     {errors.password && (
                                         <p className="text-danger">
                                             Password must contain at least one capital letter and one special character.
@@ -200,11 +200,11 @@ const Register = () => {
 
                                         required
                                     />
-                                   
+
                                     {errors.confirmPassword && (
                                         <p className="text-danger">
-                                        Password must contain at least one capital letter and one special character.
-                                    </p>
+                                            Password must contain at least one capital letter and one special character.
+                                        </p>
                                     )}
                                 </div>
 
@@ -231,7 +231,7 @@ const Register = () => {
 
                             <hr />
                             <div className="text-center">
-                            <Link className="" onClick={handleGoogleSignIn}><button className="btn primaryBtn">Sign in with <FaGoogle  className='iconSize'></FaGoogle></button></Link>
+                                <Link className="" onClick={handleGoogleSignIn}><button className="btn primaryBtn">Sign in with <FaGoogle className='iconSize'></FaGoogle></button></Link>
                             </div>
                         </div>
                     </div>

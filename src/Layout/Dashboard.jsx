@@ -9,6 +9,7 @@ import { GiMoneyStack, GiNotebook } from "react-icons/gi";
 
 
 
+
 const Dashboard = () => {
 
   // const isAdmin = true;
@@ -101,6 +102,9 @@ const Dashboard = () => {
 
 
     <div className="d-flex ">
+
+      
+
       {/* Sidebar */}
       <div className="bg-light border-right p-4" id="sidebar">
         <div className="sidebar-heading d-flex align-items-center">
